@@ -7,7 +7,7 @@
 	<authorUrl></authorUrl>
 	<copyright></copyright>
 	<license></license>
-	<version>3.0.zxsd</version>
+	<version>3.1.0</version>
 	<description></description>
     <files>
 		<filename plugin="kaznachey">kaznachey.php</filename>

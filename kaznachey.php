@@ -612,7 +612,13 @@ $html.'plgVmConfirmedOrder';
             require(JPATH_VM_ADMINISTRATOR . DS . 'models' . DS . 'orders.php');
 		$vmModelOrder = new VirtueMartModelOrders();
 		
-		$orderDetails    = $vmModelOrder->getMyOrderDetails($virtuemart_order_id);
+		$order    = $vmModelOrder->getOrder($virtuemart_order_id) ;
+		
+		$orderDetails= $order['details'];
+		
+		
+		
+		
 		
 		$ind = 0;
 		
@@ -718,9 +724,9 @@ $html.'plgVmConfirmedOrder';
 		$return = '';
 		$plugin_name = $this->_psType . '_name';
 		$plugin_desc = $this->_psType . '_desc';
-		$return = $this->displayLogos ('kaznachey.png') . ' ';
+		/*$return = $this->displayLogos ('kaznachey.png') . ' ';*/
 		//  $pay_title = 'Кредитная карта Visa/MC, Webmoney, Liqpay, Qiwi...';
-		$pay_title = 'Приват 24';
+		$pay_title = 'Оплата Liqpay';
 		$cc_types = $this->GetMerchnatInfo();
 		if($cc_types){
 			/*$select = '<br><select name="cc_type" id="cc_type">';
@@ -732,12 +738,7 @@ $html.'plgVmConfirmedOrder';
 			
 			/*$cc_agreed = "<br><input type='checkbox' class='form-checkbox' name='cc_agreed' id='cc_agreed' checked><label for='edit-panes-payment-details-cc-agreed'><a href='$cc_types[TermToUse]' target='_blank'>Согласен с условиями использования</a></label>";*/
 			
-	$html .= '<script type="text/javascript">';
-	/*$html .= "//<![CDATA[
-	jQuery(document).ready(function(a){function c(){var b=a('#cc_type').val();a('#checkoutForm').find('.cc_agreed_h').remove().end().append('<input type=hidden name=cc_agreed class=cc_agreed_h value='+b+' />')}var b=a('#cc_agreed');b.click(function(){b.is(':checked')?a('.cart-summary').find('.red').remove():b.next().after('<span class=red>Примите условие!</span>')});a('#cc_type').change(function(){c()});c()});
-
-//]]>";*/
-			$html .= '</script>';
+	 
 			
 		}
 		$pluginName = $return . '<span class="' . $this->_type . '_name">' . $pay_title . '</span>' . $select . $cc_agreed . $html;
