@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="2.5" type="plugin" group="vmpayment" method="upgrade" >
+	<name>Kaznachey</name>
+	<creationDate>February 20 2015</creationDate>
+	<author></author>
+	<authorEmail>info@kaznachey.ua</authorEmail>
+	<authorUrl></authorUrl>
+	<copyright></copyright>
+	<license></license>
+	<version>3.0.x</version>
+	<description></description>
+    <files>
+		<filename plugin="kaznachey">kaznachey.php</filename>
+		<folder>class</folder>
+		<folder>language</folder>
+		 
+		<filename>index.html</filename>
+		<filename>fail.php</filename>
+		<filename>result.php</filename>
+		<filename>success.php</filename> 
+    </files> 
+    <vmconfig>
+        <fields name="params">
+            <fieldset name="restrictions">
+				<field name="payment_sandbox" type="radio" scope="com_virtuemart" default="1"
+				label="VMPAYMENT_KAZNACHEY_PAYMENT_SANDBOX" 
+				description="VMPAYMENT_KAZNACHEY_D_PAYMENT_SANDBOX" >
+						<option value="0">COM_VIRTUEMART_NO</option>
+						<option value="1">COM_VIRTUEMART_YES</option>
+					</field>					
+				<field name="status_sandbox" type="vmorderstate" scope="com_virtuemart" default="P" 
+					label="VMPAYMENT_KAZNACHEY_STATUS_SANDBOX" />
+				
+				
+				<field required="true" name="merchant_id" type="text" size="50" default=""
+					label="VMPAYMENT_KAZNACHEY_MERCHANT_ID" 
+					description="VMPAYMENT_KAZNACHEY_D_MERCHANT_ID" />
+					
+					
+					
+				<field type="text" name="secret_key" required="true" size="50" 
+					label="VMPAYMENT_KAZNACHEY_SECRET_KEY" default="" />  
+					
+					
+					
+				<field name="status_pending" type="vmorderstate" scope="com_virtuemart" default="P" 
+					label="VMPAYMENT_KAZNACHEY_STATUS_PENDING" />
+				<field name="status_wait_secure" type="vmorderstate" scope="com_virtuemart" default="P" 
+					label="VMPAYMENT_KAZNACHEY_STATUS_WAIT_SECURE" />
+				
+				
+				<field name="status_success" type="vmorderstate" scope="com_virtuemart" 
+					default="C" 
+					label="VMPAYMENT_KAZNACHEY_STATUS_SUCCESS" />
+				<field name="status_canceled" type="vmorderstate" scope="com_virtuemart" default="X" 
+					label="VMPAYMENT_KAZNACHEY_STATUS_CANCELED" />
+				<field name="payment_currency" type="vmacceptedcurrency" default="" 
+					label="VMPAYMENT_KAZNACHEY_PAYMENT_CURRENCY" />
+				<field name="payment_language" type="languages" client="site" default="RU" 
+					label="VMPAYMENT_KAZNACHEY_PAYMENT_LANGUAGE" />
+			</fieldset>
+        </fields>
+    </vmconfig>
+</extension> 
